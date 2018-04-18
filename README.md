@@ -8,7 +8,7 @@ status+ responseHeader-》
 浏览器解析(dom树->js(会破坏dom树)->dom->渲染树->布局->绘制)
 
 #### 框架对比
-~|angular|react|vue.js
+~         |angular          |react      |vue.js
 -|-|-|-
 组织方式   | mvc            | 模块化    |  模块化
 数据绑定   | 双向           | 单向      |  双向
@@ -50,7 +50,7 @@ yarn add yarn
 node ./node_modules/yarn/bin/yarn.js init
 ```
 * yarn add webpack@3.10.0 --dev
-* 创建webpack.config.js和src/app.js
+* 创建webpack.config.js和src/app.js，.gitignore(提交忽略文件)
 * ./node_modules/.bin/webpack   打包
 * 
 * yarn add html-webpack-plugin@2.30.1 --dev
