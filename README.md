@@ -8,8 +8,8 @@ status+ responseHeader-》
 浏览器解析(dom树->js(会破坏dom树)->dom->渲染树->布局->绘制)
 
 #### 框架对比
- ~        | angular        |react      |vue.js
- -|-|-
+~|angular|react|vue.js
+-|-|-|-
 组织方式   | mvc            | 模块化    |  模块化
 数据绑定   | 双向           | 单向      |  双向
 模块能力   | 强大（大而全）  | 自由      |  简洁
