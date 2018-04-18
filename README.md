@@ -9,6 +9,7 @@ status+ responseHeader-》
 
 #### 框架对比
  ~        | angular        |react      |vue.js
+ -|-|-
 组织方式   | mvc            | 模块化    |  模块化
 数据绑定   | 双向           | 单向      |  双向
 模块能力   | 强大（大而全）  | 自由      |  简洁
@@ -90,6 +91,7 @@ node ./node_modules/yarn/bin/yarn.js init
 所以删除项目目录下，和./git下的lock。
 ```
 * git push      保存到服务器仓库
+* git pull origin master 同步
 * 接下来管理员 点击new pull request可以开始处理分支上的代码，merge合并到master上
 
 
