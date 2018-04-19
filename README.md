@@ -17,6 +17,30 @@ status+ responseHeader-》
 路由       | 静态           | 动态      |  动态
 背景       |  google        | Facebook |  阿里巴巴
 
+#### 本地存储
+~         |cookie          |sessionStorage      |localStorage
+-|-|-|-
+操作   |document.cookie="name=jack"|window.sessionStorage.setItem("name","jack")|window.localStorage.setItem("name","jack")
+大小限制   | 4k           | 5m      |  5m
+数据有效期 |过期时间之前一直有效  |窗口关闭前有效  |始终有效
+作用域     |同源窗口中都是共享  |不在不同的浏览器窗口中共享| 同源窗口中都是共享
+
+#### router路由
+~         |页面router          |hash router      |h5 router
+-|-|-|-
+方式   | window.location.href |window.location.hash| history.pushState('test','title','/path')
+数据绑定   | 双向           | 单向      |  双向
+模块能力   | 强大（大而全）  | 自由      |  简洁
+自由度     | 较小           | 大        |  较大
+路由       | 静态           | 动态      |  动态
+背景       |  google        | Facebook |  阿里巴巴
+
+#### react数据管理
+* 状态提升：组件层级扁平，兄弟组件通信情况很少
+* 发布订阅：业务规模较小，层级较深的业务
+* Redux：业务复杂，组件层级较深，兄弟组件通信密切
+
+
 # github
 #### 给github添加公钥，使其通过克隆ssh路径而不用输入密码：
 * ssh-keygen -t rsa -C '562792542@qq.com'
@@ -50,7 +74,7 @@ yarn add yarn
 node ./node_modules/yarn/bin/yarn.js init
 ```
 * yarn add webpack@3.10.0 --dev
-* 创建webpack.config.js和src/app.js，.gitignore(提交忽略文件)
+* 创建webpack.config.js和src/app.js，.gitignore(git提交忽略文件)
 * ./node_modules/.bin/webpack   打包
 * 
 * yarn add html-webpack-plugin@2.30.1 --dev
@@ -64,6 +88,7 @@ node ./node_modules/yarn/bin/yarn.js init
 * yarn add file-loader@1.1.6 url-loader@0.6.2 --dev
 * yarn add font-awesome
 * yarn add webpack-dev-server@2.9.7 --dev //提供了一个简单的 web 服务器，并且能够实时重新加载
+* yarn add react-router-dom@4.2.2
 * 
 * package.json中添加"scripts"，即可以添加yarn run xxx操作命令
 * 现在就可以运行文件，图片，scss，jsx
@@ -93,6 +118,11 @@ node ./node_modules/yarn/bin/yarn.js init
 * git push      保存到服务器仓库
 * git pull origin master 同步
 * 接下来管理员 点击new pull request可以开始处理分支上的代码，merge合并到master上
+
+删除github中的文件夹而不删除本地的
+* git rm -r --cached node_modules  #--cached不会把本地的node_modules删除
+* git commit -m 'delete node_modules'
+* git push 
 
 
 

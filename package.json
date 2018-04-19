@@ -1,8 +1,8 @@
 {
   "dependencies": {
-    "font-awesome": "^4.7.0",
     "react": "16.2.0",
     "react-dom": "16.2.0",
+    "react-router-dom": "4.2.2",
     "yarn": "^1.6.0"
   },
   "name": "HoutaiGuanli",
@@ -11,7 +11,7 @@
   "repository": "git@github.com:yangliOMG/HoutaiGuanli.git",
   "author": "yangliOMG <562792542@qq.com>",
   "license": "MIT",
-  "scripts":{
+  "scripts": {
     "dev": "node_modules/.bin/webpack-dev-server",
     "dist": "node_modules/.bin/webpack -p"
   },
