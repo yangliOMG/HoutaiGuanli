@@ -2,7 +2,7 @@
  * @Author: yangli 
  * @Date: 2018-04-19 10:56:47 
  * @Last Modified by: yangli
- * @Last Modified time: 2018-04-19 15:11:02
+ * @Last Modified time: 2018-04-20 10:42:49
  */
 class MUtil{
     request(param){
@@ -39,6 +39,9 @@ class MUtil{
             reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"),
             result = queryString.match(reg);
         return result ? decodeURIComponent(result[2]) : null; 
+    }
+    successTips(successMsg=`成功了~`){
+        alert(successMsg);
     }
     errorTips(errMsg=`出错了~`){
         alert(errMsg);
