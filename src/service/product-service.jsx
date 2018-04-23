@@ -2,7 +2,7 @@
  * @Author: yangli 
  * @Date: 2018-04-19 13:35:27 
  * @Last Modified by: yangli
- * @Last Modified time: 2018-04-20 13:51:23
+ * @Last Modified time: 2018-04-23 14:17:58
  */
 import MUtil from 'util/mm.jsx';
 const _mm = new MUtil();
@@ -99,6 +99,21 @@ class Product{
             type:'post',
             url:'/manage/product/save.do',
             data:product
+        }); 
+    }
+
+    saveCategory(category){
+        return _mm.request({
+            type:'post',
+            url:'/manage/category/add_category.do',
+            data:category
+        }); 
+    }
+    updateCategoryName(category){
+        return _mm.request({
+            type:'post',
+            url:'/manage/category/set_category_name.do',
+            data:category
         }); 
     }
 }
