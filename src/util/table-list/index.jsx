@@ -2,7 +2,7 @@
  * @Author: yangli 
  * @Date: 2018-04-19 16:28:50 
  * @Last Modified by: yangli
- * @Last Modified time: 2018-04-20 10:32:17
+ * @Last Modified time: 2018-04-23 15:00:17
  */
 import React from 'react';
 
@@ -32,9 +32,9 @@ class TableList extends React.Component{
         );
         let tableBody = listBody.length >0 ? listBody : listError;
         let tableHead = title.map((item,idx)=>{
-            if(typeof title === 'object'){
+            if(typeof item === 'object'){
                 return <th key={idx} width={item.width}>{item.name}</th>
-            }else if(typeof title === 'string'){
+            }else if(typeof item === 'string'){
                 return <th key={idx}>{item}</th>
             }
         });
