@@ -125,10 +125,72 @@ node ./node_modules/yarn/bin/yarn.js init
 * git push 
 
 
+# 代码上线
+### 准备
+* webpack.config.js配置
+```
+let WEBPACK_ENV = process.env.WEBPACK_ENV || 'dev';   //判断线上还是线下环境
 
+module.exports = {
+    entry: './src/app.jsx',    //入口
+    output: {                 //出口
+        。。。
+        publicPath: WEBPACK_ENV === 'dev' 
+            ? '/dist/' : '//jinpingou.natappvip.cc/dist/',  //根据判断选择路径
+    },
+```
+* package.json配置
+```
+"scripts": {
+    。。。
+    "dist": "WEBPACK_ENV=online node_modules/.bin/webpack -p",    //linux系统
+    "dist_win":"set WEBPACK_ENV=online&& node_modules/.bin/webpack -p"  //windows系统
+  },
+```
+### 生产环境
+* 上node官网找到适合服务器的linux版本(64位，tar.gz)，复制链接
+* 服务器上 wget + 链接 下载node
+* tar -xzvf xxx.tar.gz 解压 
+* mv xxx /usr/local/node 剪切 
+* cd node/bin ,在bin目录下， ./node -v 查看版本
+* ln -s /usr/local/.../bin/node /usr/local/bin/      利用外链把node命令设为全局命令，同理npm
 
+* 打开yarn官网，根据linux版本选择安装yarn方式（centOS,ubuntu）
+* yum install git  安装git，  git --version
+* ssh-keygen -t rsa -C '562792542@qq.com'  //配置ssh的key
+* cat ~/.ssh/id_rsa.pub 把内容复制到github上项目的公钥中
+* cd / ， mkdir developer和product  在根目录创建开发环境（代码、发布脚本）和生产环境（编译好的结果）
+* cd developer/git-repository ， git clone xxxx
+* yum install nginx     //centOS安装方法     sudo apt-get install nginx       //Ubuntu
 
+### 代码发布
+* cd 项目，  yarn //部署项目
+* node-sass可能在部署时会出错，因为node-sass可能被墙了，可以通过别的办法下载
+* yarn run dist  //打包，生成dist目录
+* cd product/front/项目名     //创建生产环境
+* cp -R /developer/git-repository/HoutaiGuanli/dist/ ./           //将dist目录下的代码放到这儿
 
+* 创建deploy/fe-deploy.sh 文件，实现项目自动部署
+* vim /developer/fe-deploy.sh       在开发环境创建
+* ls -al 查看.sh文件权限不够，chmod 775 fe-deploy.sh     修改权限
+* ./fe-deploy.sh 项目名             //执行拉代码，清除dist，重新打包
 
-
-
+### nginx配置
+* cd /etc/nginx
+* touch logs/access.log
+* vim nginx.conf
+```
+http{
+      。。。
+      include vhost/*.conf;   
+}
+```
+* vim vhost/houtai.jpg.com.conf,    vim vhost/s.jpg.com.conf
+* nginx -t  //检查文件
+* nginx -c /etc/nginx/nginx.conf
+```
+80端口被占用:
+      1.可以清除80端口的进程  
+      2.可以vim /etc/nginx/sites-available/default修改端口号。以及修改为   listen [::]:80 ipv6only=on default_server;
+```
+* nginx -s reload             //重启

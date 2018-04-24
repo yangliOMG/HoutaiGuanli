@@ -5,7 +5,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 //会将所有的入口 chunk(entry chunks)中引用的 *.css，移动到独立分离的 CSS 文件。因此，你的样式将不再内嵌到 JS bundle 中
 
 let WEBPACK_ENV = process.env.WEBPACK_ENV || 'dev';
-
+console.log(WEBPACK_ENV);
 module.exports = {
     entry: './src/app.jsx',    //入口
     output: {                 //出口
