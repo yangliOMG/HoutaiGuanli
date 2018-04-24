@@ -2,7 +2,7 @@
  * @Author: yangli 
  * @Date: 2018-04-19 16:28:50 
  * @Last Modified by: yangli
- * @Last Modified time: 2018-04-23 15:00:17
+ * @Last Modified time: 2018-04-23 16:19:33
  */
 import React from 'react';
 
@@ -41,7 +41,7 @@ class TableList extends React.Component{
         return (
             <div className="row">
                 <div className="col-md-12">
-                    <table className="table table-striped table-border">
+                    <table className="table table-striped table-bordered ">
                         <thead>
                             <tr>
                                 {tableHead}

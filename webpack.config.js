@@ -4,11 +4,14 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 //会将所有的入口 chunk(entry chunks)中引用的 *.css，移动到独立分离的 CSS 文件。因此，你的样式将不再内嵌到 JS bundle 中
 
+let WEBPACK_ENV = process.env.WEBPACK_ENV || 'dev';
+
 module.exports = {
     entry: './src/app.jsx',    //入口
     output: {                 //出口
         path: path.resolve(__dirname, 'dist'),
-        publicPath: '/dist/',   //webpack-dev-server
+        publicPath: WEBPACK_ENV === 'dev' 
+            ? '/dist/' : '//jinpingou.natappvip.cc/dist/',   //webpack-dev-server
         filename: 'js/app.js'
     },
     resolve:{ //import路径配置
