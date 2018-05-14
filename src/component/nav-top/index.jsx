@@ -17,7 +17,7 @@ class NavTop extends React.Component{
     onLogout(){
         _user.logout().then(res=>{
             _mm.removeStorage('userInfo');
-            this.props.history.push('/login');
+            this.props.history.push('/login');  //!!!! this.props.history为空，用withRouter封装一下
         }, errMsg =>{
             _mm.errorTips(errMsg)
         })

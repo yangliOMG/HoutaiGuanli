@@ -62,7 +62,7 @@ status+ responseHeader-》
 * yarn add xxx --dev === npm install xxx --save-dev //devDependencies开发时需要
 * yarn remove xxx === npm uninstall xxx --save-dev
 * yarn run xxx === npm run xxx
-* 
+* __yarn run dev__
 
 # 项目构建
 #### 环境配置：
