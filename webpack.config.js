@@ -7,26 +7,25 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 let WEBPACK_ENV = process.env.WEBPACK_ENV || 'dev';
 console.log("WEBPACK_ENV:",WEBPACK_ENV);
 module.exports = {
-    entry: './src/app.jsx',    //入口
+    entry: './src/app.jsx',    //入口  这里应用程序开始执行
     output: {                 //出口
-        path: path.resolve(__dirname, 'dist'),
-        publicPath: WEBPACK_ENV === 'dev' 
-            ? '/dist/' : '/dist/',   //webpack-dev-server
+        path: path.resolve(__dirname, 'dist'),// 所有输出文件的目标路径
+        publicPath: WEBPACK_ENV === 'dev'  ? '/dist/' : '/dist/',   //webpack-dev-server 输出解析文件的目录
         filename: 'js/app.js'
     },
-    resolve:{ //import路径配置
-        alias:{
+    resolve:{ //解析模块请求的选项
+        alias:{// 模块别名列表
             page: path.resolve(__dirname, 'src/page'),
             component: path.resolve(__dirname, 'src/component'),
             util: path.resolve(__dirname, 'src/util'),
             service: path.resolve(__dirname, 'src/service')
         }
     },
-    module: {
+    module: {// 关于模块配置
         rules: [
             {
                 test: /\.jsx$/,
-                exclude: /(node_modules)/,
+                exclude: /(node_modules)/, // exclude 是必不匹配选项，选项都接收一个正则表达式或字符串
                 use: {
                     loader: 'babel-loader',
                     options: {

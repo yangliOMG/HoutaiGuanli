@@ -44,10 +44,12 @@ status+ responseHeader-》
 # github
 #### 给github添加公钥，使其通过克隆ssh路径而不用输入密码：
 * ssh-keygen -t rsa -C '562792542@qq.com'
-* cd c/Users/rd08/.ssh/
+* cd c/Users/rd08/.ssh/         
 * cat id_rsa.pub  ->得到公钥
 * 打开github项目->settings->deploy keys->add->放入公钥保存,勾选读写权限
 * git clone SSH方式就被允许了
+
+* linux ：  1.   ssh-keygen       2.   cat ~/.ssh/id_rsa.pub
 
 
 # yarn
