@@ -5,7 +5,7 @@ dns查询（dns缓存）域名对应的ip地址-》
 请求服务器中的资源-
 requestHeader+(参数url[get请求]或body[post请求])
 status+ responseHeader-》
-浏览器解析(dom树->js(会破坏dom树)->dom->渲染树->布局->绘制)
+浏览器解析HTML,生成dom树->js(阻塞式，会破坏dom树)->dom->渲染树(css)->布局->绘制)
 
 #### 框架对比
 ~         |angular          |react      |vue.js
@@ -29,11 +29,7 @@ status+ responseHeader-》
 ~         |页面router          |hash router      |h5 router
 -|-|-|-
 方式   | window.location.href |window.location.hash| history.pushState('test','title','/path')
-数据绑定   | 双向           | 单向      |  双向
-模块能力   | 强大（大而全）  | 自由      |  简洁
-自由度     | 较小           | 大        |  较大
-路由       | 静态           | 动态      |  动态
-背景       |  google        | Facebook |  阿里巴巴
+
 
 #### react数据管理
 * 状态提升：组件层级扁平，兄弟组件通信情况很少
